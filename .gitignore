@@ -1,0 +1,16 @@
+*.user
+*.suo
+.vs/
+
+[Bb]in/
+[Oo]bj/
+
+.idea/
+
+*.db
+
+*.log
+
+[Pp]ackages/
+
+[Tt]est[Rr]esult*/
