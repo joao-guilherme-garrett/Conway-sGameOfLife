@@ -1,17 +1,21 @@
 using GameOfLife.Api.Data;
+using GameOfLife.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<GameOfLifeContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
 builder.Services.AddControllers();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=gameoflife.db";
+builder.Services.AddDbContext<GameOfLifeContext>(options =>
+    options.UseSqlite(connectionString));
+
+builder.Services.AddScoped<IBoardRepository, BoardRepository>();
+builder.Services.AddScoped<GameOfLifeService>();
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddScoped<GameOfLife.Api.Services.GameOfLifeService>();
 
 var app = builder.Build();
 
@@ -28,4 +32,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }
 
