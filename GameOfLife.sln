@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameOfLife.Tests", "GameOfL
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4DC4BB0A-7C47-4007-92CB-C4D6BA4C7D75}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
 		.gitignore = .gitignore
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Global
